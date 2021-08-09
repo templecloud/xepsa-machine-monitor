@@ -1,6 +1,12 @@
 # Xepsa Machine Monitor
 
-* Experiment with Prometheus and Grafana locally
+* Experiment with Prometheus and Grafana locally.
+
+* Check container DNS record
+
+    * `docker run --rm -it --network ${docker_nw} nicolaka/netshoot`
+
+    * `docker run --rm --network ${docker_nw} nicolaka/netshoot dig ${docker_host_alias}`
 
 ## References
 

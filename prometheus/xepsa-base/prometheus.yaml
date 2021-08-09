@@ -1,9 +1,0 @@
-global:
-    scrape_interval: 10s
-    evaluation_interval: 10s
-
-scrape_configs:
-    # Prometheus self-monitoring
-    - job_name: 'prometheus'
-      static_configs:
-          - targets: ['localhost:9090']
