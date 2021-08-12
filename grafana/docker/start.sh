@@ -3,7 +3,7 @@
 # Default   : localhost:9100/metrics
 
 _NW='xepsa-machine-monitor-nw'
-_NAME='xepsa-node-exporter'
+_NAME='xepsa-grafana'
 
 # Ensure Docker network.
 #
@@ -17,10 +17,10 @@ fi
 docker run -d\
  --net ${_NW}\
  --network-alias ${_NAME}\
- --pid host\
- -v /:/host:ro,rslave\
+ -p 3000:3000\
+ -e "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource"\
  --name ${_NAME}\
- prom/node-exporter:latest --path.rootfs=/host
+ grafana/grafana:latest
 
 # Check container host alias DNS A record.
 #
